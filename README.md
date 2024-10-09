@@ -41,7 +41,7 @@ Em seguida, precisamos configurar as variáveis de acesso ao banco de dados conf
 - DB_USERNAME=root
 - DB_PASSWORD=root
 
-As variáveis aqui definidas foram utilizadas como exemplo, então ao configurar o seu ambiente local você pode utilizar as configurações acima ou de sua escolha.
+As variáveis aqui definidas foram utilizadas como exemplo, então ao configurar o seu ambiente local você deve utilizar as suas configurações locais.
 
 ## 2.2 Iniciando o projeto
 
@@ -60,13 +60,16 @@ php artisan serve
 Agora nosso projeto é acessável da através da url:  
  - http://localhost:8000 
  
- Opcionalmente você pode acessar a página com a documentação do swagger da API do projeto com:  
+ Opcionalmente você pode acessar a página com a documentação do swagger da API do projeto pelo link:  
  - http://localhost:8000/api/documentation
 
 ## 2.3 Rotas
 
 Ao executar projeto, as seguintes rotas da **API** estarão disponíveis:
 
--
+- http://localhost:8000/api/users
+- http://localhost:8000/api/movements
+- http://localhost:8000/api/ranking?movement_id=id_do_movimento
+- http://localhost:8000/api/personal-records
 
-Mais detalhes das rotas podem ser encontradas na documentação do swagger.
+Mais detalhes das rotas podem ser encontradas na documentação do swagger. Você pode acessar as rotas em ferramentas como **Postman** também se achar necessário.
