@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PersonalRecord extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
 
     protected $table = 'personal_record';
@@ -21,11 +20,11 @@ class PersonalRecord extends Model
         'name',
     ];
 
-    public function users() {
-		return $this->hasMany(User::class, 'user_id');
+    public function user() {
+		return $this->belongsTo(User::class);
 	}
 
-    public function movements() {
-		return $this->hasMany(Movement::class, 'movement_id');
+    public function movement() {
+		return $this->belongsTo(Movement::class);
 	}
 }
