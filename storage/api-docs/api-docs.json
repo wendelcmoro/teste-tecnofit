@@ -1,0 +1,309 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Teste Tecnofit",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/movements": {
+            "get": {
+                "tags": [
+                    "Movements"
+                ],
+                "summary": "Show a list of movements",
+                "operationId": "cdc4828dcad7a7555e332a629b10a1a0",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "movements": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "movement": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "description": "Movement ID",
+                                                                "type": "integer"
+                                                            },
+                                                            "name": {
+                                                                "description": "Movement name",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/ranking": {
+            "get": {
+                "tags": [
+                    "Ranking"
+                ],
+                "summary": "Show the ranking by movement",
+                "operationId": "d38de21b3b140eb20c4cad956a7d86c9",
+                "parameters": [
+                    {
+                        "name": "movement_id",
+                        "in": "query",
+                        "description": "Movement ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "movement": {
+                                            "description": "Movement Name",
+                                            "type": "string"
+                                        },
+                                        "ranking": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "ranking": {
+                                                        "properties": {
+                                                            "user": {
+                                                                "description": "User name",
+                                                                "type": "string"
+                                                            },
+                                                            "record": {
+                                                                "description": "User greatest record",
+                                                                "type": "number",
+                                                                "format": "float"
+                                                            },
+                                                            "date": {
+                                                                "description": "User greatest record date",
+                                                                "type": "string",
+                                                                "format": "date-time"
+                                                            },
+                                                            "position": {
+                                                                "description": "User record position",
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "422": {
+                        "description": "Unprocessable Content"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/personal-records": {
+            "get": {
+                "tags": [
+                    "Personal Records"
+                ],
+                "summary": "Show a list of personal records",
+                "operationId": "ef3da304d08cd1d9428bf1df6e898f44",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "records": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "record": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "description": "Personal Record ID",
+                                                                "type": "integer"
+                                                            },
+                                                            "user_id": {
+                                                                "description": "Personal Record user_id",
+                                                                "type": "integer"
+                                                            },
+                                                            "movement_id": {
+                                                                "description": "Personal Record movement_id",
+                                                                "type": "integer"
+                                                            },
+                                                            "value": {
+                                                                "description": "Personal Record value",
+                                                                "type": "number",
+                                                                "format": "float"
+                                                            },
+                                                            "date": {
+                                                                "description": "Personal Record date",
+                                                                "type": "string",
+                                                                "format": "date-time"
+                                                            },
+                                                            "user": {
+                                                                "description": "User",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "description": "User ID",
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "name": {
+                                                                        "description": "User name",
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "movement": {
+                                                                "description": "Movement",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "description": "Movement ID",
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "name": {
+                                                                        "description": "Movement name",
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Show a list of users",
+                "operationId": "4db02f0d9ccd97469981e0cb03d1a41e",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean"
+                                        },
+                                        "users": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "user": {
+                                                        "properties": {
+                                                            "id": {
+                                                                "description": "User ID",
+                                                                "type": "integer"
+                                                            },
+                                                            "name": {
+                                                                "description": "User name",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Movements",
+            "description": "Movements"
+        },
+        {
+            "name": "Ranking",
+            "description": "Ranking"
+        },
+        {
+            "name": "Personal Records",
+            "description": "Personal Records"
+        },
+        {
+            "name": "Users",
+            "description": "Users"
+        }
+    ]
+}
